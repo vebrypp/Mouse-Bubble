@@ -12,10 +12,10 @@ window.addEventListener('load', function() {
         constructor(x, y) {
             this.x = x;
             this.y = y;
-            this.r = randInit(0, 20);
-            this.v = 5
+            this.r = randInit(0, 40);
+            this.v = 10;
             this.vx = randInit(-this.v, this.v);
-            this.vy = randInit(-this.v, this.v);
+            this.vy = randInit(1, this.v);
             this.color = 'white';
         };
         draw() {
@@ -26,10 +26,9 @@ window.addEventListener('load', function() {
             ctx.closePath();
         };
         update(index) {
-            this.x += this.vx;
             this.y += this.vy;
             if(this.r <= 0 ) this.r = 0, bubbles.splice(index, 1);
-            else this.r -= this.r/10;
+            else this.r -= this.r/100;
         };
     };
 
